@@ -14,26 +14,27 @@ Running setup_database.sh does the following:
    the Python API to extract all users as JSON.
 2. The JSON consistes of a list of dict-like nested objects that need to be
    flattened. What that means that we need to normalized the nested dicts into
-   a flat dict using json2csv.py. A nested dict looks like the following:
-
+   a flat dict using json2csv.py. A nested dict looks like the following:  
 ```
 {
-  "name": {
+"name": {
     "givenName": "FirstName",
     "surName": "LastName"
-  }
 }
-```
-
-Needs to be flattened into:
-
+}
+```  
+Needs to be flattened into:  
 ```
 {
   "name.givenName": "FirstName",
   "name.surName": "LastName"
 }
+```  
+So that we can generate a .csv file from the JSON data that we extracted from GSuite:  
 ```
-
-So that we can generate a .csv file from the JSON data that we extracted from GSuite.
+| name.givenName | name.surName |
+| -------------- | ------------ |
+| FirstName      | LastName     |
+```  
 
 json2csv.py
