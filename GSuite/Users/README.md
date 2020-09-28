@@ -53,7 +53,7 @@ sqlite3 all_users.db "select orgUnitPath,count(*) from users group by orgUnitPat
 sqlite3 all_users.db "select primaryEmail from users where suspended and orgUnitPath not like '/Staff/HR Terminated%'"
 ```
 
-## Move suspended users that are not in our terminated OU, into the terminated OU using GAM
+## Move suspended users that are not in our terminated OU, into the terminated OU using [GAM](https://github.com/jay0lee/GAM/wiki)
 ```
 sqlite3 all_users.db "select primaryEmail from users where suspended and orgUnitPath not like '/Staff/HR Terminated%'" |\
     xargs -L1 -P10 -i gam update user '{}' org '/Staff/HR Terminated'
