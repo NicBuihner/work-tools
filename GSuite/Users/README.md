@@ -17,7 +17,7 @@ might benefit from.
   * APIs & Services -> Dashboard -> + ENABLE APIS AND SERVICES -> Enable Admin SDK
   * APIs & Services -> OAuth consent screen -> Fill everything out. This is the information on the "this app needs access to your blah blah" dialog.
   * APIs & Services -> Credentials -> + CREATE CREDENTIALS -> OAuth client ID -> Desktop app
-  * APIs & Services -> Credentials -> OAuth 2.0 Client IDs -> &gt;your client&lt; -> DOWNLOAD JSON
+  * APIs & Services -> Credentials -> OAuth 2.0 Client IDs -> &lt;your client&gt; -> DOWNLOAD JSON
   * Rename long client_secrets_blah_blah.json to client_secrets.json.
   * Move that file into the directory with the extract_gsuite_users.py script.
 
