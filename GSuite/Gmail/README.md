@@ -16,23 +16,23 @@ Running setup_database.sh does the following:
    flattened. What that means that we need to normalized the nested dicts into
    a flat dict using json2csv.py. A nested dict looks like the following:
 
-'''
+```
 {
   "name": {
     "givenName": "FirstName",
     "surName": "LastName"
   }
 }
-'''
+```
 
 Needs to be flattened into:
 
-'''
+```
 {
   "name.givenName": "FirstName",
   "name.surName": "LastName"
 }
-'''
+```
 
 So that we can generate a .csv file from the JSON data that we extracted from GSuite.
 
