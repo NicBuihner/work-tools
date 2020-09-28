@@ -38,4 +38,23 @@ Running setup_database.sh does the following:
    |------------------ | -------------- | ------------ |
    | email@example.com | FirstName      | LastName     |
    ```  
+3. csvsql is part of csvkit and is used to load .csv data into a sqlite3
+   database which we can use to explore our GSuite data locally.
 
+# Why?
+
+## Print user counts for every OU in the domain
+```
+sqlite3 all_users.db "select orgUnitPath,count(*) from users group by orgUnitPath order by orgUnitPath"
+```
+
+## Print suspended users that aren't in our terminated employees OU
+```
+sqlite3 all_users.db "select primaryEmail from users where suspended and orgUnitPath not like '/Staff/HR Terminated%'"
+```
+
+## Move suspended users that are not in our terminated OU, into the terminated OU using GAM
+```
+sqlite3 all_users.db "select primaryEmail from users where suspended and orgUnitPath not like '/Staff/HR Terminated%'" |\
+    xargs -L1 -P10 -i gam update user '{}' org '/Staff/HR Terminated'
+```
