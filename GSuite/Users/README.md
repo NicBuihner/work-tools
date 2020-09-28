@@ -17,6 +17,7 @@ Running setup_database.sh does the following:
    a flat dict using json2csv.py. A nested dict looks like the following:  
    ```
    {
+     "primaryEmail": "EmailAddress",
      "name": {
          "givenName": "FirstName",
          "surName": "LastName"
@@ -26,14 +27,15 @@ Running setup_database.sh does the following:
    Needs to be flattened into:  
    ```
    {
+     "primaryEmail": "EmailAddress",
      "name.givenName": "FirstName",
      "name.surName": "LastName"
    }
    ```  
    So that we can generate a .csv file from the JSON data that we extracted from GSuite:  
    ```
-   | name.givenName | name.surName |
-   | -------------- | ------------ |
-   | FirstName      | LastName     |
+   | primaryEmail      | name.givenName | name.surName |
+   |------------------ | -------------- | ------------ |
+   | email@example.com | FirstName      | LastName     |
    ```  
 
