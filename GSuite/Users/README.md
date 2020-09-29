@@ -36,7 +36,7 @@ Running setup_database.sh does the following:
      "primaryEmail": "EmailAddress",
      "name": {
          "givenName": "FirstName",
-         "surName": "LastName"
+         "familyName": "LastName"
      }
    }
    ```  
@@ -45,12 +45,12 @@ Running setup_database.sh does the following:
    {
      "primaryEmail": "EmailAddress",
      "name.givenName": "FirstName",
-     "name.surName": "LastName"
+     "name.familyName": "LastName"
    }
    ```  
    So that we can generate a .csv file from the JSON data that we extracted from GSuite:  
    ```
-   | primaryEmail      | name.givenName | name.surName |
+   | primaryEmail      | name.givenName | name.familyName |
    |------------------ | -------------- | ------------ |
    | email@example.com | FirstName      | LastName     |
    ```  
