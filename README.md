@@ -9,14 +9,14 @@ your district, I'm more likely to have experience dealing with it and can help,
 so please ask!
 
 ### Stuff we use!
-High School Only District
-GSuite for Education Enterprise
-Aeries SIS
-Canvas LMS
-1-2-1 Chromebooks
-AWS (Most)
-GCP (Some)
-Azure (Least. AAD and Office 365)
+* High School Only District
+* GSuite for Education Enterprise
+* Aeries SIS
+* Canvas LMS
+* 1-2-1 Chromebooks
+* AWS (Most)
+* GCP (Some)
+* Azure (Least. AAD and Office 365)
 
 ### Stuff I use!
 My daily driver is a Chromebook that I use to connect to a cloud terminal for
