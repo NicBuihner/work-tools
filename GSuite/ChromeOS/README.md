@@ -25,10 +25,13 @@ might benefit from.
 
 Running setup_database.sh does the following:
 
-1. The first step is to export the [device data](https://developers.google.com/admin-sdk/directory/v1/reference/chromeosdevices#resource) from the GSuite domain into a
-   .json file. The extract_chromebooks.py script handles this part by asking
-   you to go through an offline oauth2 flow to generate a token before using
-   the Python API to extract all devices as JSON.
+1. The first step is to export the [device
+   data](https://developers.google.com/admin-sdk/directory/v1/reference/chromeosdevices#resource)
+   from the GSuite domain into a .json file. The extract_chromebooks.py script
+   handles this part by asking you to go through an offline oauth2 flow to
+   generate a token before using the Python API to extract all devices as JSON.
+   We also cull some keys here to prevent sqlite3 from complaining about the
+   number of columns.
 2. The JSON consistes of a list of dict-like nested objects that need to be
    flattened using json2csv.py. A nested dict looks like the following:  
    ```
