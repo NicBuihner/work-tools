@@ -62,7 +62,7 @@ gam create schema SAMLAttributes |\
 ## Populate the Student Values
 You mean need to tweak the sqlite3 query. Here I assume that your students are all in a root OU **/Student**.
 ```
-sqlite3 -csv all_users.db "select primaryEmail,[name.givenName],[name.surName] from users where orgUnitPath like '/Student%'" |\
+sqlite3 -csv all_users.db "select primaryEmail,[name.givenName],[name.familyName] from users where orgUnitPath like '/Student%'" |\
     awk -F',' '{print "update user "$1" SAMLAttributes.ZoomDisplayName \x27"$3" "$2"\x27 SAMLAttributes.ZoomType Basic SAMLAttributes.ZoomRole Member SAMLAttributes.ZoomGroup students"}' >\
     student_zoom_attributes.commands
 ```
@@ -74,7 +74,7 @@ Inspect the student_zoom_attributes.commands file for correctness. Once you're s
 ## Populate the Teacher Values
 Assuming your teachers are all in **/Staff/Teaching**.
 ```
-sqlite3 -csv all_users.db "select primaryEmail,[name.givenName],[name.surName] from users where orgUnitPath like '/Staff/Teaching%'" |\
+sqlite3 -csv all_users.db "select primaryEmail,[name.givenName],[name.familyName] from users where orgUnitPath like '/Staff/Teaching%'" |\
     awk -F',' '{print "update user "$1" SAMLAttributes.ZoomDisplayName \x27"$3" "$2"\x27 SAMLAttributes.ZoomType Licensed SAMLAttributes.ZoomRole Member SAMLAttributes.ZoomGroup teachers"}' >\
     teacher_zoom_attributes.commands
 ```
@@ -86,7 +86,7 @@ Inspect the teacher_zoom_attributes.commands file for correctness. Once you're s
 ## Populate the Staff Values
 Assuming your staff are all in **/Staff** and not in **/Staff/Teaching**.
 ```
-sqlite3 -csv all_users.db "select primaryEmail,[name.givenName],[name.surName] from users where orgUnitPath like '/Staff%' and orgUnitPath not like '/Staff/Teaching%'" |\
+sqlite3 -csv all_users.db "select primaryEmail,[name.givenName],[name.familyName] from users where orgUnitPath like '/Staff%' and orgUnitPath not like '/Staff/Teaching%'" |\
     awk -F',' '{print "update user "$1" SAMLAttributes.ZoomDisplayName \x27"$3" "$2"\x27 SAMLAttributes.ZoomType Licensed SAMLAttributes.ZoomRole Member SAMLAttributes.ZoomGroup staff"}' >\
     staff_zoom_attributes.commands
 ```
