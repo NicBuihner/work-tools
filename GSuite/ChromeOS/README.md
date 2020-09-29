@@ -68,7 +68,7 @@ Running setup_database.sh does the following:
 
 ## Count devices whose lastSync was prior to 2020-09-01
 ```
-sqlite3 all_devices.db "select count(*) from cros where lastSync>'2020-09-01'"
+sqlite3 all_devices.db "select count(*) from cros where lastSync<'2020-09-01'"
 ```
 
 ## Move devices whose lastSync was prior to 2020-09-01 using [GAM](https://github.com/jay0lee/GAM/wiki)
@@ -84,7 +84,7 @@ sqlite3 all_devices.db "select model,count(model) from cros group by model order
 
 ## Count devices by supportEndDate
 ```
-sqlite3 -csv all_devices.db "select supportEndDate,count(supportEndDate) from cros group by supportEndDate order by supportEndDate"
+sqlite3 all_devices.db "select supportEndDate,count(supportEndDate) from cros group by supportEndDate order by supportEndDate"
 ```
 
 ## Move list of chromebook serial numbers into an OU using [GAM](https://github.com/jay0lee/GAM/wiki)
