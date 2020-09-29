@@ -42,7 +42,7 @@ User:
 
 * [GAM](https://github.com/jay0lee/GAM/wiki) - Activated and ready to go with schema and user scopes.
 * sqlite3
-* [all_users.db](https://github.com/NicBuihner/work-tools/tree/master/GSuite/Users)
+* [all_users.db](https://github.com/NicBuihner/work-tools/tree/master/GSuite/Users) from the GSuite/Users guide.
 
 # Steps
 
