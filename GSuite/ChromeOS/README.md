@@ -71,9 +71,9 @@ Running setup_database.sh does the following:
 sqlite3 all_devices.db "select count(*) from cros where lastSync<'2020-09-01'"
 ```
 
-## Move devices whose lastSync was prior to 2020-09-01 using [GAM](https://github.com/jay0lee/GAM/wiki)
+## Move devices whose lastSync was prior to 2020-09-01 using [GAM](https://github.com/jay0lee/GAM/wiki) into the lost/missing OU
 ```
-sqlite3 all_devices.db "select deviceId from cros where lastSync>'2020-09-01'" |\
+sqlite3 all_devices.db "select deviceId from cros where lastSync<'2020-09-01'" |\
     xargs -L1 -P10 -i gam update cros '{}' org '/Chrome Devices/Lost or Missing'
 ```
 
