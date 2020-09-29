@@ -25,7 +25,7 @@ might benefit from.
 
 Running setup_database.sh does the following:
 
-1. The first step is to export the user data from the GSuite domain into a
+1. The first step is to export the [user data](https://developers.google.com/admin-sdk/directory/v1/reference/users#resource) from the GSuite domain into a
    .json file. The extract_gsuite_users.py script handles this part by asking
    you to go through an offline oauth2 flow to generate a token before using
    the Python API to extract all users as JSON.

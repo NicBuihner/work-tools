@@ -68,7 +68,7 @@ Running setup_database.sh does the following:
 sqlite3 all_devices.db "select count(*) from cros where lastSync>'2020-09-01'"
 ```
 
-## Move devices whose lastSync was prior to 2020-09-01 using [GAM]()
+## Move devices whose lastSync was prior to 2020-09-01 using [GAM](https://github.com/jay0lee/GAM/wiki)
 ```
 sqlite3 all_devices.db "select deviceId from cros where lastSync>'2020-09-01'" |\
     xargs -L1 -P10 -i gam update cros '{}' org '/Chrome Devices/Lost or Missing'
@@ -84,7 +84,7 @@ sqlite3 all_devices.db "select model,count(model) from cros group by model order
 sqlite3 -csv all_devices.db "select supportEndDate,count(supportEndDate) from cros group by supportEndDate order by supportEndDate"
 ```
 
-## Move list of chromebook serial numbers into an OU
+## Move list of chromebook serial numbers into an OU using [GAM](https://github.com/jay0lee/GAM/wiki)
 ```
 < ListOfSerials xargs -L1 -i sqlite3 all_devices.db "select deviceId from cros where serialNumber like '{}'" |\
     xargs -L1 -P10 -i gam update cros '{}' org '/Student/Ridgemont High'
