@@ -1,9 +1,9 @@
 # Overview
 
-Use Meet. That said, if you are ruled by professional bureaucrats whose
-decision making process is as deep as best-of-five shakes of a magic eight
-ball, I hope this will ease your pain and assist you in wasting as little
-taxpayer money as possible.
+We're in the GSuite folder, so, use Meet. That said, if you are ruled by
+professional bureaucrats whose decision making process is as deep as
+best-of-five shakes of a magic eight ball, I hope this will ease your pain and
+assist you in wasting as little taxpayer money as possible.
 
 I'm assuming that you're using GSuite as your primary IDP and that you will be
 federating Zoom via SAML. I recommend this over the "Sign in with Google" or
@@ -52,7 +52,7 @@ Zoom. Feel free to change **SAMLAttributes** to whatever you feel is
 appropriate, but keep it consistent, think about how this schema might be used
 later.
 ```
-gam create schema **SAMLAttributes** |\
+gam create schema SAMLAttributes |\
     field ZoomDisplayName type string endfield |\
     field ZoomType type string endfield |\
     field ZoomRole type string endfield |\
@@ -96,7 +96,7 @@ Inspect the staff_zoom_attributes.commands file for correctness. Once you're sur
 ```
 
 # Why?
-## The sqlite db?
+## The sqlite3 db?
 You can [query for
 these](https://developers.google.com/admin-sdk/directory/v1/guides/search-users)
 things directly against the users endpoint or with GAM, but it can be slow with
@@ -105,6 +105,9 @@ a large domain and the queries aren't as useful.
 ## The .commands file?
 Over the years I've gotten in the habit of generating the work to do as an
 explicit step. It's easy to look for things like unmatched quotes and other
-weird values that might mess something up. Also makes running partial tests or
-re-running easier if there is an issue executing the work. It's also sometimes
-helpful to have a log of work done.
+weird values that might mess something up. Makes running partial tests or
+re-running jobs easier if there is an issue executing the work. It's also
+sometimes helpful to have a log of work done.
+
+## ZoomDisplayName = "Lastname FirstName"?
+Our teachers wanted last name first to help navigate attendee lists I'm told.
