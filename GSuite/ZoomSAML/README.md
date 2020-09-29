@@ -5,7 +5,7 @@ decision making process is as deep as best-of-five shakes of a magic eight
 ball, I hope this will ease your pain and assist you in wasting as little
 taxpayer money as possible.
 
-I'm assuming that you're using GSuite as your primary IDP and that you will
+I'm assuming that you're using GSuite as your primary IDP and that you will be
 federating Zoom via SAML. I recommend this over the "Sign in with Google" or
 OIDC flow as it allows you more control over user attributes in Zoom. Going
 through documentation we identified the following attribute assertions as the
