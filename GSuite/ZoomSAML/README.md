@@ -27,7 +27,7 @@ ones that we wanted to send to Zoom:
   * staff -> staff
 
 The first three attributes are already part of our user data in GSuite. The
-last four need to be added ie:
+last four need to be added to a [custom schema](https://developers.google.com/admin-sdk/directory/v1/reference/schemas) in GSuite eg:
 ```
 User:
   CustomSchemas:
